@@ -22,4 +22,4 @@ echo "************************************************************"
 	make
 	
 %runscript
-	exec /usr/local/src/mpiBench
+	exec /usr/local/src/mpiBench/mpiBench
