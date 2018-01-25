@@ -16,9 +16,10 @@ Bootstrap: docker
 echo "************************************************************"
 echo "Installling mpiBench from https://github.com/LLNL/mpiBench"
 echo "************************************************************"
+	cd /usr/local/src
 	git clone https://github.com/LLNL/mpiBench
 	cd mpiBench
 	make
 	
 %runscript
-	exec /mpiBench/mpiBench
+	exec /usr/local/src/mpiBench
