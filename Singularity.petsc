@@ -15,8 +15,8 @@ From: keceli/mpi_benchmark:theta
    make -j 4
 
 %environment
-   export PETSC_DIR
-   export PETSC_ARCH
+   export PETSC_DIR=/container/petsc
+   export PETSC_ARCH=arch-container
      
 %runscript
    /container/mpiBench/mpibench
