@@ -27,8 +27,6 @@ From: centos
    mpicc -o mpibench -fPIC mpiBench.c
 
 %environment
-   PATH=$PATH
-   LD_LIBRARY_PATH=$LD_LIBRARY_PATH
    export PATH
    export LD_LIBRARY_PATH
    
