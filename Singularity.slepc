@@ -1,0 +1,27 @@
+Bootstrap: shub
+From: keceli/mpi_benchmark:petsc
+
+%setup
+   echo ${SINGULARITY_ROOTFS}
+   cd ${SINGULARITY_ROOTFS}/container
+  
+%post
+   yum update -y
+   git clone -b maint https://bitbucket.org/slepc/slepc slepc
+   cd slepc
+   echo PATH=$PATH
+   echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+   export SLEPC_DIR=$PWD
+   ./configure 
+   make -j 4 all
+   cd /slepc/src/esp/esp/examples/tutorials
+   make ex5
+   
+%environment
+   export PETSC_DIR=/petsc
+   export SLEPC_DIR=/slepc
+   export PETSC_ARCH=arch-container
+     
+%runscript
+   /slepc/src/eps/eps/examples/tutorials/ex5 
+   
