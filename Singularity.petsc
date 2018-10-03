@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: keceli/mpi_benchmark
+From: keceli/mpi_benchmark:theta
 
 %setup
    echo ${SINGULARITY_ROOTFS}
