@@ -10,6 +10,7 @@ From: centos
    yum groupinstall -y "Development Tools"
    yum install -y gcc
    yum install -y gcc-c++
+   yum install -y which
    yum install -y wget
    yum install -y git
    yum install -y ca-certificates
@@ -27,6 +28,8 @@ From: centos
    mpicc -o mpibench -fPIC mpiBench.c
 
 %environment
+   PATH=$PATH:/mpich-3.2.1/install/bin/
+   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
    export PATH
    export LD_LIBRARY_PATH
    
