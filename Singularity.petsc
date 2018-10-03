@@ -14,7 +14,7 @@ From: keceli/mpi_benchmark:theta
    export PETSC_DIR=$PWD
    export PETSC_ARCH=arch-container
    ./configure --with-shared-libraries=1 --with-debugging=1 --download-fblaslapack --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90
-   make -j 4 PETSC_DIR=/petsc PETSC_ARCH=arch-container check
+   make -j 4 PETSC_DIR=/petsc PETSC_ARCH=arch-container all
    cd /petsc/src/ksp/ksp/examples/tutorials
    make ex5
    
