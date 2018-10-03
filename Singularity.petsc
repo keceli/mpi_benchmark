@@ -1,0 +1,23 @@
+Bootstrap: shub
+From: keceli/mpi_benchmark
+
+%setup
+   echo ${SINGULARITY_ROOTFS}
+   mkdir ${SINGULARITY_ROOTFS}/container
+  
+%post
+   yum update -y
+   git clone -b maint https://bitbucket.org/petsc/petsc petsc
+   cd petsc
+   export PETSC_DIR=$PWD
+   export PETSC_ARCH=arch-gcc
+   ./configure --with-shared-libraries=1 --with-debugging=1 --disable-wrapper-rpath
+   make -j 4
+
+%environment
+   export PETSC_DIR
+   export PETSC_ARCH
+     
+%runscript
+   /container/mpiBench/mpibench
+   
