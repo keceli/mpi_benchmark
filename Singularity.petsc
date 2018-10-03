@@ -3,7 +3,7 @@ From: keceli/mpi_benchmark:theta
 
 %setup
    echo ${SINGULARITY_ROOTFS}
-   mkdir ${SINGULARITY_ROOTFS}/container
+   cd ${SINGULARITY_ROOTFS}/container
   
 %post
    yum update -y
@@ -11,7 +11,7 @@ From: keceli/mpi_benchmark:theta
    cd petsc
    export PETSC_DIR=$PWD
    export PETSC_ARCH=arch-container
-   ./configure --with-shared-libraries=1 --with-debugging=1 --download-fblaslapack
+   ./configure --with-shared-libraries=1 --with-debugging=1 --download-fblaslapack --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90
    make -j 4
 
 %environment
