@@ -11,7 +11,13 @@ From: keceli/mpi_benchmark:petsc
    cd slepc
    echo PATH=$PATH
    echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-   export SLEPC_DIR=$PWD
+   PATH=$PATH:/mpich-3.2.1/install/bin/
+   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
+   export PETSC_DIR=/petsc
+   export PETSC_ARCH=arch-container
+   export SLEPC_DIR=/slepc
+   echo PATH=$PATH
+   echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
    ./configure 
    make -j 4 all
    cd /slepc/src/esp/esp/examples/tutorials
