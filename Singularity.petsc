@@ -9,12 +9,8 @@ From: keceli/mpi_benchmark:theta
    yum update -y
    git clone -b maint https://bitbucket.org/petsc/petsc petsc
    cd petsc
-   echo PATH=$PATH
-   echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-   PATH=$PATH:/mpich-3.2.1/install/bin/
-   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
-   echo PATH=$PATH
-   echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+   export PATH=$PATH:/mpich-3.2.1/install/bin/
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
    export PETSC_DIR=/petsc
    export PETSC_ARCH=arch-container
    ./configure --with-shared-libraries=1 --with-debugging=1 --download-fblaslapack --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90
