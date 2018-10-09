@@ -3,16 +3,17 @@ From: keceli/mpi_benchmark:theta
 
 %post
    yum update -y
+   yum install -y openssh-server openssh-clients python-devel 
    cd /container
    git clone -b maint https://bitbucket.org/petsc/petsc petsc
-   cd petsc
    export PATH=$PATH:/mpich-3.2.1/install/bin/
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
-   export PETSC_DIR=/petsc
+   export PETSC_DIR=/container/petsc
    export PETSC_ARCH=arch-container
+   cd $PETSC_DIR
    ./configure --with-shared-libraries=1 --with-debugging=1 --download-fblaslapack --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90
    make -j 4 PETSC_DIR=/petsc PETSC_ARCH=arch-container all
-   cd /petsc/src/ksp/ksp/examples/tutorials
+   cd ./src/ksp/ksp/examples/tutorials
    make ex5
    
 %environment
