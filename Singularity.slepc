@@ -1,26 +1,19 @@
 Bootstrap: shub
 From: keceli/mpi_benchmark:petsc
 
-%setup
-   echo ${SINGULARITY_ROOTFS}
-   cd ${SINGULARITY_ROOTFS}/container
-  
 %post
    yum update -y
+   cd /container
    git clone -b maint https://bitbucket.org/slepc/slepc slepc
-   cd slepc
-   echo PATH=$PATH
-   echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-   PATH=$PATH:/mpich-3.2.1/install/bin/
-   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
-   export PETSC_DIR=/petsc
+   export PATH=$PATH:/mpich-3.2.1/install/bin/
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
+   export PETSC_DIR=/container/petsc
    export PETSC_ARCH=arch-container
-   export SLEPC_DIR=/slepc
-   echo PATH=$PATH
-   echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+   export SLEPC_DIR=/container/slepc
+   cd $SLEPC_DOR
    ./configure 
    make -j 4 all
-   cd /slepc/src/esp/esp/examples/tutorials
+   cd src/esp/esp/examples/tutorials
    make ex5
    
 %environment
