@@ -1,12 +1,9 @@
 Bootstrap: shub
 From: keceli/mpi_benchmark:theta
 
-%setup
-   echo ${SINGULARITY_ROOTFS}
-   cd ${SINGULARITY_ROOTFS}/container
-  
 %post
    yum update -y
+   cd /container
    git clone -b maint https://bitbucket.org/petsc/petsc petsc
    cd petsc
    export PATH=$PATH:/mpich-3.2.1/install/bin/
