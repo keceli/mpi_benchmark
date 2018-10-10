@@ -13,7 +13,7 @@ From: keceli/mpi_benchmark:petsc
    cd $SLEPC_DIR
    ./configure 
    make -j 4 all
-   cd src/esp/esp/examples/tutorials
+   cd src/eps/examples/tutorials
    make ex5
    
 %environment
@@ -22,5 +22,5 @@ From: keceli/mpi_benchmark:petsc
    export PETSC_ARCH=arch-container
      
 %runscript
-   /slepc/src/eps/eps/examples/tutorials/ex5 
+   /slepc/src/eps/examples/tutorials/ex5 
    
