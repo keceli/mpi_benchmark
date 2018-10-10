@@ -10,7 +10,7 @@ From: keceli/mpi_benchmark:petsc
    export PETSC_DIR=/container/petsc
    export PETSC_ARCH=arch-container
    export SLEPC_DIR=/container/slepc
-   cd $SLEPC_DOR
+   cd $SLEPC_DIR
    ./configure 
    make -j 4 all
    cd src/esp/esp/examples/tutorials
