@@ -16,8 +16,8 @@ From: keceli/mpi_benchmark:theta
     yum install -y openssh-clients zip 
     yum install -y python-devel python-pip  python-setuptools
    yum install -y cmake3
-   export PATH=$PATH:/container/mpich-3.2.1/install/bin
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/container/mpich-3.2.1/install/lib
+   export PATH=$PATH:/mpich-3.2.1/install/bin
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
    cd /container
    git clone https://github.com/VALENCE-software/VALENCE.git
    cd VALENCE
