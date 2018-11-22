@@ -34,6 +34,7 @@ From: keceli/mpi_benchmark:theta
    
    cd /container/VALENCE
    sed -i.bak s:/lib/:/lib64/: Makefile
+   sed -i.bak s:PRINT_TIMING=no:PRINT_TIMING=yes: Makefile
    make
    
 %runscript
