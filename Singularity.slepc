@@ -17,8 +17,8 @@ From: keceli/mpi_benchmark:petsc
    make ex5
    
 %environment
-   export PETSC_DIR=/petsc
-   export SLEPC_DIR=/slepc
+   export PETSC_DIR=/container/petsc
+   export SLEPC_DIR=/container/slepc
    export PETSC_ARCH=arch-container
      
 %runscript
