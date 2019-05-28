@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: keceli/mpi_benchmark:petsc
+From: keceli/mpi_benchmark:slepc
 
 %post
    yum update -y
