@@ -17,7 +17,7 @@ From: keceli/mpi_benchmark:theta
    make ex5
    
 %environment
-   export PETSC_DIR=/petsc
+   export PETSC_DIR=/container/petsc
    export PETSC_ARCH=arch-container
      
 %runscript
