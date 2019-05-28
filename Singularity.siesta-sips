@@ -1,0 +1,17 @@
+Bootstrap: shub
+From: keceli/mpi_benchmark:petsc
+
+%post
+   yum update -y
+   cd /container
+    git clone https://bitbucket.org/keceli/siesta-sips.git
+    cd siesta-sips
+    mkdir $PETSC_ARCH
+    cd $PETSC_ARCH
+    sh ../Src/obj_setup.sh && \
+    ../Src/configure --enable-mpi CC=${PETSC_DIR}/${PETSC_ARCH}/bin/mpicc FC=${PETSC_DIR}/${PETSC_ARCH}/bin/mpif90 && \
+    echo LIBS='${SLEPC_EPS_LIB} $(SCALAPACK_LIBS) $(BLACS_LIBS) $(LAPACK_LIBS) $(BLAS_LIBS) $(NETCDF_LIBS)' >> arch.make && \
+    echo FFLAGS=-g -O2 -I${PETSC_DIR}/include -I${PETSC_DIR}/${PETSC_ARCH}/include -I${SLEPC_DIR}/${PETSC_ARCH}/include -I${SLEPC_DIR}/include >> arch.make && \
+    make siesta && \
+    mkdir ../Obj && \
+    cp siesta ../Obj/
