@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: keceli/mpi_benchmark:slepc
+From: keceli/mpi_benchmark:theta
 %environment
    export PETSC_DIR=/container/petsc
    export SLEPC_DIR=/container/slepc
@@ -8,7 +8,22 @@ From: keceli/mpi_benchmark:slepc
    export PETSC_DIR=/container/petsc
    export SLEPC_DIR=/container/slepc
    export PETSC_ARCH=arch-container
+   export PETSC_VERSION=v3.11.1
+   export PATH=$PATH:/mpich-3.2.1/install/bin/
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
    yum update -y
+   cd /container
+   git clone https://bitbucket.org/petsc/petsc petsc
+   cd $PETSC_DIR
+   git checkout $PETSC_VERSION
+   ./configure --with-shared-libraries=1 --with-debugging=1 --download-fblaslapack --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90
+   make all
+   cd /container
+   git clone https://bitbucket.org/slepc/slepc slepc
+   cd $SLEPC_DIR
+   git checkout $PETSC_VERSION
+   ./configure 
+   make -j 4 all
    cd /container
     git clone https://bitbucket.org/keceli/qetsc.git
     cd qetsc
