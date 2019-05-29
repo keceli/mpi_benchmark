@@ -25,10 +25,6 @@ From: centos
    git clone https://github.com/LLNL/mpiBench
    cd mpiBench
    mpicc -o mpibench -fPIC mpiBench.c
-
-%environment
-   export PATH
-   export LD_LIBRARY_PATH
    
 %runscript
    /container/mpiBench/mpibench
