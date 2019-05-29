@@ -5,6 +5,7 @@ From: keceli/mpi_benchmark:petsc
    yum update -y
    cd /container
    git clone https://bitbucket.org/slepc/slepc slepc
+   cd slepc
    git checkout v3.11.1
    export PATH=$PATH:/mpich-3.2.1/install/bin/
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
