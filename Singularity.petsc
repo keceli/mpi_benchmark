@@ -5,7 +5,8 @@ From: keceli/mpi_benchmark:theta
    yum update -y
    yum install -y openssh-server openssh-clients python-devel 
    cd /container
-   git clone -b maint https://bitbucket.org/petsc/petsc petsc
+   git clone https://bitbucket.org/petsc/petsc petsc
+   git checkout v3.11.1
    export PATH=$PATH:/mpich-3.2.1/install/bin/
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
    export PETSC_DIR=/container/petsc
