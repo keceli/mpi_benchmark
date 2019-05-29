@@ -10,6 +10,10 @@ From: keceli/mpi_benchmark:slepc
    export PETSC_ARCH=arch-container
    yum update -y
    cd /container
+    git clone https://bitbucket.org/keceli/qetsc.git
+    cd qetsc
+    make qetsc
+    cd ../
     git clone https://bitbucket.org/keceli/siesta-sips.git
     cd siesta-sips
     mkdir $PETSC_ARCH
