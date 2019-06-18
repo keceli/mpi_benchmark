@@ -17,12 +17,12 @@ From: shub://keceli/mpi_benchmark:nwchem_base
    export PYTHONVERSION=2.7
    export PYTHONHOME=/usr
 #   export BLAS_SIZE=4
-#   export USE_64TO32=y 
+   export USE_64TO32=y 
    export NWCHEM_MODULES="all python"
    export USE_INTERNALBLAS=y
    export FFLAGS='-g -fPIC'
    make nwchem_config FC=gfortran CC=gcc FFLAGS='-g -fPIC'
-   #make 64_to_32
+   make 64_to_32
    make FC=gfortran CC=gcc FFLAGS='-g -fPIC'
 #
 #%runscript
