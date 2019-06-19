@@ -15,7 +15,7 @@ From: keceli/mpi_benchmark:theta
     yum install -y wget  vim 
     yum install -y openssh-clients zip 
     yum install -y python-devel python-pip  python-setuptools
-   yum install -y cmake3
+   yum install -y cmake
    yum install -y gsl-devel fftw-devel	
    export PATH=$PATH:/mpich-3.2.1/install/bin
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich-3.2.1/install/lib
